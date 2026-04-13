@@ -1,0 +1,635 @@
+ <	strictly less than	
+        <=	less than or equal	
+        >	strictly greater than	
+        >=	greater than or equal	
+        ==	equal	
+        !=	not equal  ( "<>" is also allowed)
+        is	object identity	(are _objects_ identical, not values)
+        is not	negated object identity
+
+ False values:	None, numeric zeros, empty sequences and mappings
+      True values:	all other values
+
+      not X: if X is false then 1, else 0
+      X or Y: if X is false then Y, else X
+      X and Y: if X is false then X, else Y
+
+      ('or', 'and' evaluate second arg only if necessary to determine outcome)
+
+ abs(x)	absolute value of x	
+        int(x)	x converted to integer	
+        long(x)	x converted to long integer	
+        float(x)	x converted to floating point	
+        -x	x negated	
+        +x	x unchanged	
+        x + y	sum of x and y	
+        x - y	difference of x and y	
+        x * y	product of x and y	
+        x / y	quotient of x and y	
+        x % y	remainder of x / y
+        divmod(x, y)	the tuple (x/y, x%y)
+        pow(x, y)	x to the power y	
+
+~x	the bits of x inverted	
+        x ^ y	bitwise exclusive or of x and y	
+        x & y	bitwise and of x and y	
+        x | y	bitwise or of x and y	
+        x << n	x shifted left by n bits	
+        x >> n	x shifted right by n bits
+
+len(s)		length of s	
+	min(s)		smallest item of s	
+	max(s)		largest item of s	
+	x in s		1 if an item of s is equal to x, else 0
+	x not in s	0 if an item of s is equal to x, else 1
+	s + t		the concatenation of s and t	
+	s * n, n * s	n copies of s concatenated	
+	s[i]		i'th item of s, origin 0
+	s[i:j]		slice of s from i to j	
+
+	slice from index i up to but not including index j
+	i defaults to 0, j to len(s)
+	negative goes from right-end of sequence
+
+s[i] = x	item i of s is replaced by x	
+	s[i:j] = t	slice of s from i to j is replaced by t	
+	del s[i:j]	delete slice (same as s[i:j] = [])
+	s.append(x)     add x to end of s
+	s.count(x)	return number of i's for which s[i] == x
+	s.index(x)	return smallest i such that s[i] == x1)
+	s.insert(i, x) 	item i becomes x, old item i is now at i+1, etc.
+	s.remove(x) 	same as del s[s.index(x)]	
+	s.reverse() 	reverses the items of s (in place)
+	s.sort()	sorts the list (in place)
+			Optional parameter: function of two arguments 
+			returning -1, 0 or 1 depending on whether arg1 
+			is >, ==, < arg2.
+
+len(a)		the number of items in a	
+	a[k]		the item of a with key k
+	a[k] = x	set a[k] to x	
+	del a[k]	remove a[k] from a
+	a.items()	a copy of a's list of (key, value) pairs	
+	a.keys()	a copy of a's list of keys	
+	a.values()	a copy of a's list of values	
+	a.has_key(k)	1 if a has a key k, else 0
+
+%, c, s, i, d, u, o, x, X, e, E, f, g, G
+
+f.close(x)     			close file f.
+	f.fileno(x)    			get fileno (fd) for f.
+	f.flush(x)     			flush file's internal buffer.
+	f.isatty()    			1 if file is connected to a tty-like dev, else 0
+	f.read([size]) 			read at most most  bytes from file and
+					return as a string object. If  omitted,
+					read to EOF.
+
+	f.readline()   			read one entire line from file
+	f.readlines()  			read until EOF with readline() and return list
+					of lines read.
+
+	f.seek(offset, whence=0)     	set file's position, like 
+					"stdio's fseek()". 
+					whence == 0 then use absolute indexing
+					whence == 1 then offset relative to current pos
+					whence == 2 then offset relative to file end
+
+	f.tell()     			return file's current position
+	f.write(str)			Write string to file.
+	f.writelines(list)		Write list of strings to file.
+
+pass		-- Null statement
+=		-- Assignment operator. Can unpack tuples, lists,
+		   first, second = a[0:2]; [f, s] = range(2)
+del <id>	-- Unbind name from object, or attributes from
+		   objects, etc.
+print [<c1> [, <c2> ]* [,]
+		-- Writes to sys.stdout.
+		   Puts spaces between arguments. Puts newline at end
+		   unless statement ends with comma.
+		   Print is not required when running interactively,
+		   simply typing an expression will print its value,
+		   unless the value is None.
+exec <x> [in <globals> [,<locals>]]
+		-- Executes <x> in namespaces provided. Defaults
+		   to current namespaces. <x> can be a string, file
+		   object or a function object.
+f(<value>,... [<id>=<value>])
+		-- Call function 'f' with parameters. Parameters can
+		   be passed by name or be omitted if function 
+		   defines default values. E.g. for 'f' is defined as
+		   "def f(p1=1, p2=2)"
+		   "f()"       <=>  "f(1, 2)"
+		   "f(10)"     <=>  "f(10, 2)"
+		   "f(p2=99)"  <=>  "f(1, 99)"
+
+if <condition>: <suite>
+[elif <condition>: <suite>]*
+[else: suite]
+		-- usual if/else_if/else statement
+
+while <condition>: <suite>
+[else: <suite>]
+		-- usual while statement. "else" suite is executed
+		   after loop exits, unless the loop is exited with
+		   "break"
+
+for <target> in <condition-list>: <suite>
+[else: <suite>]
+		-- iterates over sequence "<condition-list>",
+	 	   assigning each element to "<target>".
+		   "else" suite executed at end unless loop exited
+		   with "break"
+
+break		-- immediately exit "for" or "while" loop
+continue	-- immediately do next iteration of "for" or "while" loop
+
+return [<result>]
+		-- return from function (or method) and return
+		   "<result>". If no result given, then returns None.
+
+try: <suite1>
+[except [<exception> [, <value>]: <suite2>]+
+[else: <suite3>]
+		-- statements in <suite1> are executed. If an
+		   exception occurs, look in "except" clauses for
+		   matching <exception>. If matches or bare "except"
+		   execute suite of that clause. If no exception happens
+		   suite in "else" clause is executed after <suite1>.
+		   If <exception> has a value, it is put in <value>.
+		   <exception> can also be tuple of exceptions, e.g.
+		   "except (KeyError, NameError), val: print val"
+
+try: <suite1>
+finally: <suite2>
+		-- statements in <suite1> are executed. If no
+		   exception, execute <suite2> (even if <suite1> is
+		   exited with a "return", "break" or "continue"
+		   statement). If exception did occur, executes 
+		  <suite2> and them immediately reraises exception.
+
+raise <exception> [,<value> [,<traceback>]]
+		-- raises <exception> with optional value
+		   <value>. Parameter <traceback>
+		   specifies a traceback object to use when printing
+		   the exception's backtrace.
+
+An exception is either a string (object) or a class instance.
+Can create a new one simply by creating a new string:
+
+		my_exception = 'You did something wrong'
+		try: 
+			if bad: 
+				raise my_exception, bad
+		except my_exception, value: 
+			print 'Oops', value
+Or, more complicated:
+		class base_exception:
+			pass
+		class numeric_exception(base_exception):
+			pass
+		class text_exception(base_exception):
+			pass
+		try:
+			if bad:
+				raise text_exception()
+				## This is a shorthand for the form
+				## "raise <class>, <instance>"
+				## 
+		except base_exception:
+			print 'Oops'
+			## This will be printed because
+			## text_exception is a subclass of base_exception
+
+import <module_id1> [, <module_id2>]*
+		-- imports modules. Members of module must be 
+		   referred to by qualifying with module name:
+		   "import sys; print sys.argv:
+
+from <module_id> import <id1> [, <id2>]*
+		-- imports names from module <module_id>. Names
+		   are not qualified:
+		   "from sys import argv; print argv"
+
+from <module_id> import *
+		-- imports all names in module <module_id>, except
+		   those starting with "_":
+		   "from sys import *; print argv"
+
+global <id1> [,<id2>]*
+		-- ids are from global scope (usually meaning from module)
+		   rather than local (usually meaning only in
+		   function).
+		-- E,g, in fcn, no "global" statements, assume "a"
+		   is name that hasn't been used in fcn or module
+		   so far.
+
+		   Try to read from "a" -> NameError
+		   Try to write to "a" -> creates "a" local to fcn
+		   If "a" not defined in fcn, but is in module, then
+		   Try to read from "a", gets value from module
+		   Try to write to "a", creates "a" local to fcn
+
+		   But note "a[0]=3" starts with search for "a",
+		   will use to global "a" if no local "a".
+
+def <func_id> ([<param_list>]): <suite>
+		-- creates a function object and assigns it name 
+		   <func_id>.
+
+<param_list> ==> [<id> [, <id>]*] [<id> =
+							  <v> [,
+							  <id> =
+							  <v>]*]
+							  [*<id>] 
+							  [**<id>]
+E.g.
+	def test (p1, p2 = 1+1, *rest, **keywords):
+		-- Parameters with "=" have default value (<v> is
+		   evaluated when function defined).
+		   If list has "*<id>" then <id> is assigned
+		   a tuple of all remaining args passed to function.
+		   (allows vararg functions).
+		   If list has "**<id>" then <id> is assigned
+		   a dictionary of all argumenst passed as keywords.
+
+class <class_id> [(<super_class1> [,<super_class2>]*)]: <suite>
+	-- Creates a class object and assigns it name <class_id>
+	   <suite> may contain local "defs" of class methods and
+	   assignments to class attributes.
+E.g.
+	     class my_class (class1, class_list[3]): ...
+	          Creates a class object inheriting from both "class1" and whatever  
+	          class object "class_list[3]" evaluates to. Assigns new
+	          class object to name "my_class".
+
+	First arg to class methods is always instance object.
+	By convention this is called "self".
+	Special method "__init__()" called when instance created.
+	Create instance by "calling" class object, possibly with args.
+	In current implementation, can't subclass off built-in
+	classes. But can "wrap" them, see __getattr__() below.
+
+
+E.g.
+	class c (c_parent): 
+	   def __init__(self, name): self.name = name
+	          def print_name(self): print "I'm", self.name
+	          def call_parent(self): c_parent.print_name(self)
+
+	       instance = c('tom')
+	       print instance.name 
+	         'tom'
+	       instance.print_name()
+	         "I'm tom"
+
+	Call parent's super class by accessing parent's method
+	directly and passing "self" explicitly (see "call_parent"
+	in example above).
+
+	Many other special methods available for implementing
+	arithmetic operators, sequence, mapping indexing, etc.
+
+class c:
+		"A description of 'c'"
+		def __init__(self):
+			"A description of the constructor"
+			# etc.
+Then c.__doc__ <=> "A description of 'c'".
+Then c.__init__.__doc__ <=> "A description of the constructor".
+
+lambda [<param_list>]: <condition>
+		-- Create an anonymous function. <condition> must be
+		   an expression not a statement (e.g., not "if xx:...", 
+		   "print xxx", etc.) and thus can't contain newlines.
+		   Used mostly for filter(), map(), reduce() functions. 
+
+abs(x)		Return the absolute value of a number
+
+apply(f, args)
+		Call func/method <f> with args <args>
+
+callable(x)	Returns 1 if x callable, else 0.
+
+chr(i)		Return one-character string whose ASCII code is
+		integer i
+
+cmp(x,y)	Return neg, zero, pos if x <, ==, > to y
+
+coerce(x,y)	Return a tuple of the two numeric arguments converted to
+	 	a common type.
+
+compile(string, filename, kind) 
+		Compile <string> into a code object.
+		<filename> is used in error message, can be
+		any string.  <kind> can be 'eval' if
+		<string> is a single stmt, or 'single' which
+		prints the output of expression statements that
+		evaluate to something else than "None" or be 'exec'.
+
+dir([object])	If no args, return the list of names in current local
+		symbol table. With a module, class or class instance
+		object as arg, return list of names in its attr dict.
+
+divmod(a,b)	Returns tuple of (a/b, a%b)
+
+eval(s, globals, locals)
+		Eval string <s> in (optional) <globals>, <locals>. 
+		<s> must have no NULL's or newlines. <s> can also be a
+		code object.
+		E.g.: x = 1; incr_x = eval('x + 1')
+
+filter(function, list)
+		Construct a list from those elements of <list> for which
+	        <function> returns true. <function> takes one parameter.
+
+float(x)	Convert a number to floating point.
+
+getattr(object, name)
+		Get attr called <name> from <object>.
+		getattr(x, 'foobar') <=> x.foobar
+
+globals()	Returns a dictionary containing current global variables.
+
+hasattr(object, name)
+		Returns true if <object> has attr called <name>.
+
+hash(object)	Return the hash value of the object (if it has one)
+
+hex(x)		Convert a number to a hexadecimal string.
+
+id(object)	Return a unique 'identity' integer for an object.
+
+input([prompt])	Prints prompt, if given. Reads input and evaluates it.
+
+int(x)		Convert a number to a plain integer.
+
+len(s)		Return the length (the number of items) of an object.
+
+local()		Return a dictionary containing current local variables.
+
+long(x)		Convert a number to a long integer.
+
+map(function, list, ...)
+		Apply <function> to every item of <list> and return a list
+		of the results.  If additional arguments are passed, 
+		<function> must take that many arguments and it is given
+		to <function> on each call.
+
+max(s)		Return the largest item of a non-empty sequence.
+
+min(s)		Return the smallest item of a non-empty sequence.
+
+oct(x)		Convert a number to an octal string.
+
+open(filename [, mode='r', [bufsize=<implementation dependent>]])
+		Return a new file object. First two args are same as 
+		those for C's "stdio open" function. <bufsize> is 0
+		for unbuffered, 1 for line-buffered, negative for
+		sys-default, all else, of (about) given size.
+
+ord(c)		Return integer ASCII value of <c> (str of len 1).
+
+pow(x, y [, z])	Return x to power y [modulo z]
+
+range(start [,end [, step]])
+		return list of ints from >= start and < end. 
+		With 1 arg, list from 0..<arg>-1
+		With 2 args, list from <start>..<end>-1
+		With 3 args, list from <start> up to <end> by <step>
+
+raw_input([prompt])
+		Print prompt if given, then read string from std
+		input.
+
+reduce(f, list [, init])
+		Apply the binary function <f> to the items of
+		<list> so as to reduce the list to a single value.
+		If <init> given, it is "prepended" to <list>.
+
+reload(module)	Re-parse and re-initialize an already imported module.
+		Useful in interactive mode, if you want to reload a
+		module after fixing it. If module was synactically
+		correct but had an error in initialization, must
+		import it one more time before calling reload().
+
+repr(object)	Return a string containing a printable representation
+		of an object. Equivalent to `object` (using
+		backquotes).
+
+round(x,n=0)	Return the floating point value x rounded to n digits
+	 		after the decimal point.
+
+setattr(object, name, value)
+		This is the counterpart of getattr().
+		setattr(o, 'foobar', 3) <=> o.foobar = 3
+
+str(object)	Return a string containing a nicely printable
+		representation of an object.
+
+tuple(list)	Creates a tuple with same elements as <list>
+
+type(object)	Return type of an object. E.g.,
+		if type(x) == type(''): print 'It is a string'
+
+vars([object])	Without arguments, return a dictionary corresponding
+		to the current local symbol table.  With a module,
+		class or class instance object as argument   
+		returns a dictionary corresponding to the object's
+		symbol table. Useful with "%" formatting operator.
+
+xrange(start [, end [, step]])
+		Like range(), but doesn't actually store entire list
+		all at once. Good to use in "for" loops when there is a
+		big range and little memory.
+
+
+AttributeError
+    On attribute reference or assignment failure 
+EOFError
+    Immediate end-of-file hit by input() or raw_input() 
+IOError
+    I/O-related I/O operation failure 
+ImportError
+    On failure of `import' to find module or name 
+IndexError
+    On out-of-range sequence subscript 
+KeyError
+    On reference to a non-existent mapping (dict) key 
+KeyboardInterrupt
+    On user entry of the interrupt key (often `Control-C') 
+MemoryError
+    On recoverable memory exhaustion 
+NameError
+    On failure to find a local or global (unqualified) name 
+OverflowError
+    On excessively large arithmetic operation 
+RuntimeError
+    Obsolete catch-all; define a suitable error instead 
+SyntaxError
+    On parser encountering a syntax error 
+SystemError
+    On non-fatal interpreter error - bug - report it 
+SystemExit
+    On `sys.exit()' 
+TypeError
+    On passing inappropriate type to built-in op or func 
+ValueError
+    On arg error not covered by TypeError or more precise 
+ZeroDivisionError
+    On division or modulo operation with 0 as 2nd arg 
+
+class x: 
+	 def __init__(self, v): self.value = v
+	 def __add__(self, r): return self.value + r
+a = x(3) # sort of like calling x.__init__(a, 3)
+a + 4    # is equivalent to a.__add__(4)
+
+(s: self, o: other)
+
+	__init__(s, args) object instantiation 
+	__del__(s)        called on object demise (refcount becomes 0)
+	__repr__(s)       repr() and `...` conversions
+	__str__(s)        str() and 'print' statement
+	__cmp__(s, o)     implements <, ==, >, <=, <>, !=, >=, is [not]
+	__hash__(s)       hash() and dictionary operations
+	__getattr__(s, name)  called when attr lookup doesn't find <name>
+	__setattr__(s, name, val) called when setting an attr
+                                  (inside, don't use "self.name = value"
+                                   use "self.__dict__[name] = val")
+	__delattr__(s, name)  called to delete attr <name>
+
+        __call__(self, *args) called when an instance is called as function.
+(s: self, o: other)
+
+	s+o       =  __add__(s,o)         s-o        =  __sub__(s,o)
+	s*o       =  __mul__(s,o)         s/o        =  __div__(s,o)
+	s%o       =  __mod__(s,o)         divmod(s,o) = __divmod__(s,o)
+	pow(s,o)  =  __pow__(s,o)
+	s&o       =  __and__(s,o)         
+	s^o       =  __xor__(s,o)         s|o        =  __or__(s,o)
+	s<<o      =  __lshift__(s,o)      s>>o       =  __rshift__(s,o)
+	nonzero(s) = __nonzero__(s) (used in boolean testing)
+	-s        =  __neg__(s)           +s         =  __pos__(s)  
+	abs(s)    =  __abs__(s)           ~s         =  __invert__(s)  (bitwise)
+	int(s)    =  __int__(s)           long(s)    =  __long__(s)
+	float(s)  =  __float__(s)
+	oct(s)    =  __oct__(s)           hex(s)     =  __hex__(s)
+	coerce(s,o) = __coerce__(s,o)
+
+        Right-hand-side equivalents for all binary operators exist;
+        are called when class instance is on r-h-s of operator:
+        a + 3  calls __add__(a, 3)
+        3 + a  calls __radd__(a, 3)
+
+BaseHTTPServer	--  Base class forhttp services.
+CGIHTTPServer	--  CGI http services.
+Complex		--  Complex numbers as instances of the class Complex.
+Queue           --  A multi-producer, multi-consumer queue.
+SimpleHTTPServer--  Simple extension to base http class
+StringIO	--  File-like objects that read/write a string buffer.
+SocketServer	--  Generic socket server classes.
+UserDict        --  A wrapper to allow subclassing of built-in dict class.
+UserList        --  A wrapper to allow subclassing of built-in list class.
+addpack         --  Support for "packages", groups of related modules.
+aifc            --  Stuff to parse AIFF-C and AIFF files.
+anydbm		--  Generic interface to all dbm clones.
+audiodev	--  Audio support for a few platforms.
+base64		--  Conversions to/from base64 RFC-MIME transport encoding .
+bdb             --  A generic Python debugger base class.
+binhex		--  Macintosh binhex compression/decompression.
+bisect          --  List bisection algorithms.
+calendar        --  Calendar printing functions.
+cgi		--  Wraps the WWW Forms Common Gateway Interface (CGI).
+cmd             --  A generic class to build line-oriented command interpreters.
+cmp             --  Efficiently compare files, boolean outcome only.
+cmpcache        --  Same, but caches 'stat' results for speed.
+codehack        --  Extract a function name from a code object.
+colorsys        --  Conversion functions between RGB and other color systems.
+commands        --  Tools for executing UNIX commands .
+compileall	--  Force "compilation" of all .py files in a directory.
+copy		--  Generic shallow and deep copying operations.
+dircache        --  Sorted list of files in a dir, using a cache.
+dircmp          --  Defines a class to build directory diff tools on.
+dis             --  Bytecode disassembler.
+dospath         --  Common operations on DOS pathnames.
+dumbdbm		--  A dumb and slow but simple dbm clone.
+dump            --  Print python code that reconstructs a variable.
+emacs           --  Execute Emacs code from a Python interpreter.
+find		--  Find files directory hierarcy matching a pattern.
+fnmatch         --  Filename matching with shell patterns.
+fpformat        --  General floating point formatting functions.
+ftplib          --  An FTP client class.  Based on RFC 959.
+getopt          --  Standard command line processing.
+glob            --  filename globbing.
+gopherlib       --  Gopher protocol client interface.
+grep            --  'grep' utilities.
+htmlentitydefs	--  Proposed entity definitions for HTML.
+htmllib		--  HTML parsing utilities.
+httplib         --  HTTP client class.
+ihooks		--  Hooks into the "import" mechanism.
+imghdr          --  Recognizing image files based on their first few bytes.
+importall       --  Utility module to import all modules in the path.
+linecache       --  Cache lines from files.
+lockfile	--  Implements file locking.
+maccache        --  Mac cache listdir(), isdir(), isfile() or exists().
+macpath         --  Pathname (or related) operations for the Macintosh.
+mailbox         --  A class to handle a unix-style or mmdf-style mailbox.
+mhlib		--  MH (mailbox) interface.
+mimetools       --  Various tools used by MIME-reading or MIME-writing programs.
+multifile       --  Class to make multi-file messages easier to handle.
+mutex           --  Mutual exclusion -- for use with module sched.
+newdir          --  New dir() function.
+ni		--  New import scheme with package support.
+nntplib         --  An NNTP client class.  Based on RFC 977.
+ntpath          --  Common operations on DOS pathnames.
+os              --  Either mac, dos or posix depending system.
+packmail        --  Create a self-unpacking shell archive.
+pdb             --  A Python debugger.
+persist         --  Implement limited persistence.
+pickle		--  Pickling (save and restor) of Python objects.
+pipes           --  Conversion pipeline templates.
+poly            --  Polynomials.
+posixfile	--  Extended (posix) file operations.
+posixpath       --  Common operations on POSIX pathnames.
+profile         --  Class for profiling python code.
+pstats		--  Class for printing reports on profiled python code.
+pty		--  Pseudo terminal utilities.
+py_compile	--  Routine to "compile" a .py file to a .pyc file.
+pyclbr		--  Parse a Python file and retrieve classes and methods.
+quopri		--  Conversions to/from quoted-printable transport encoding.
+rand            --  Don't use unless you want compatibility with C's rand().
+random          --  Random variable generators.
+regex_syntax    --  Flags for regex.set_syntax().
+regexp          --  Backward compatibility for module "regexp" using "regex".
+regsub          --  Regular expression subroutines.
+repr            --  Redo repr() but with limits on most sizes.
+rexec		--  Restricted execution facilities ("safe" exec, eval, etc).
+rfc822          --  RFC-822 message manipulation class.
+sched           --  A generally useful event scheduler class.
+sgmllib		--  A parser for SGML.
+shelve		--  Manage shelves of pickled objects.
+shutil          --  Utility functions usable in a shell-like program.
+sndhdr          --  Several routines that help recognizing sound.
+stat            --  Constants and functions for interpreting stat/lstat struct.
+statcache       --  Maintain a cache of file stats.
+string          --  A collection of string operations.
+sunau           --  Stuff to parse Sun and NeXT audio files.
+sunaudio        --  Interpret sun audio headers.
+symbol          --  Non-terminal symbols of Python grammar (from "graminit.h").
+tb              --  Print tracebacks, with a dump of local variables.
+tempfile        --  Temporary file name allocation.
+toaiff          --  Convert "arbitrary" sound files to AIFF files .
+token           --  Tokens (from "token.h").
+tokenize        --  Compiles a regular expression that recognizes Python tokens.
+traceback	--  Format and print Python stack traces.
+tty		--  Terminal utilities.
+types		--  Define names for all type symbols in the std interpreter.
+tzparse         --  Parse a timezone specification.
+urllib          --  Open an arbitrary URL.
+urlparse	--  Parse URLs according to latest draft of standard.
+uu		--  UUencode/UUdecode.
+wave            --  Stuff to parse WAVE files.
+whatsound       --  Several routines that help recognizing sound files.
+whrandom        --  Wichmann-Hill random number generator.
+zmod            --  Demonstration of abstruse mathematical concepts.
